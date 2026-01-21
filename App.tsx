@@ -318,9 +318,7 @@ const App: React.FC = () => {
             <p className="text-[#1d1d1f] font-medium text-sm leading-none mb-1 text-gray-900">{companyName}</p>
             <p className="text-[#86868b] text-xs tracking-tight">© 2026. All rights reserved.</p>
           </div>
-          <div className="flex flex-wrap gap-x-12 gap-y-4 text-[13px] font-medium text-[#86868b]">
-            <a href="#about" className="hover:text-[#1d1d1f] transition-colors">Our Goal</a>
-            <a href="#contact" className="hover:text-[#1d1d1f] transition-colors">Support</a>
+          <div className="flex text-[13px] font-medium text-[#86868b]">
             <button 
               onClick={() => setIsPrivacyOpen(true)}
               className="hover:text-[#1d1d1f] transition-colors text-left"
