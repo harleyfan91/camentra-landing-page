@@ -64,7 +64,6 @@ const IPhoneMockup: React.FC = () => {
             loop 
             muted 
             playsInline
-            poster="https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80&w=800"
           />
           
           {/* Subtle Screen Glare Overlay */}
