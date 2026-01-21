@@ -56,7 +56,7 @@ const IPhoneMockup: React.FC = () => {
         {/* Video Content */}
         <div className="w-full h-full bg-black flex items-center justify-center relative">
           <video 
-            src="./app-preview.mp4" 
+            src="/welcome-screen-1.mp4" 
             className="w-full h-full object-cover"
             autoPlay 
             loop 
@@ -201,7 +201,7 @@ const App: React.FC = () => {
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <SafeImage 
-              src="./logo-transparent-background" 
+              src="/logo-transparent-background.png"
               alt="Camentra Logo" 
               className="w-8 h-8 object-contain"
             />
