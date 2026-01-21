@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Camentra | Camera Guidance for Small Businesses</title>
+    <title>Camentra | Professional Camera Guidance for Small Businesses</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,9 +16,36 @@
             -moz-osx-font-smoothing: grayscale;
             background-color: #ffffff;
             color: #1d1d1f;
+            scroll-behavior: smooth;
         }
+        
+        /* Custom Scrollbar for Apple-like feel */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d2d2d7;
+            border-radius: 10px;
+            border: 2px solid white;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #86868b;
+        }
+
         .apple-shadow {
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Fade-in animation for hero */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
     </style>
 <script type="importmap">
@@ -33,5 +60,7 @@
 </head>
 <body>
     <div id="root"></div>
+    <!-- Entry point script -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>

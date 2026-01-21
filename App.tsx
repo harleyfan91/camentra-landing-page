@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 /**
  * Camentra Landing Page
@@ -40,7 +40,7 @@ const SafeImage: React.FC<SafeImageProps> = ({ src, alt, className, style, fallb
 
 const IPhoneMockup: React.FC = () => {
   return (
-    <div className="relative mx-auto w-[280px] h-[580px] md:w-[320px] md:h-[650px] bg-[#1d1d1f] rounded-[55px] p-3 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border-[6px] border-[#3a3a3c]">
+    <div className="relative mx-auto w-[280px] h-[580px] md:w-[320px] md:h-[650px] bg-[#1d1d1f] rounded-[55px] p-3 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border-[6px] border-[#3a3a3c] animate-fade-in">
       {/* Power/Volume Buttons */}
       <div className="absolute -left-[7px] top-24 w-[3px] h-12 bg-[#3a3a3c] rounded-l-md" />
       <div className="absolute -left-[7px] top-40 w-[3px] h-16 bg-[#3a3a3c] rounded-l-md" />
@@ -74,18 +74,24 @@ const IPhoneMockup: React.FC = () => {
 };
 
 const Modal: React.FC<{ isOpen: boolean; onClose: () => void; title: string; children: React.ReactNode }> = ({ isOpen, onClose, title, children }) => {
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'unset';
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
       <div 
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm" 
+        className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300" 
         onClick={onClose}
       />
-      <div className="relative bg-white w-full max-w-2xl max-h-[85vh] overflow-hidden rounded-[2.5rem] shadow-2xl animate-in fade-in zoom-in duration-200 flex flex-col">
+      <div className="relative bg-white w-full max-w-2xl max-h-[85vh] overflow-hidden rounded-[2.5rem] shadow-2xl animate-in fade-in zoom-in duration-300 flex flex-col">
         <div className="flex justify-between items-center p-8 md:p-10 border-b border-gray-50 flex-shrink-0">
           <h2 className="text-2xl font-bold tracking-tight">{title}</h2>
-          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors">
+          <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full transition-colors" aria-label="Close">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
@@ -116,26 +122,26 @@ const App: React.FC = () => {
               Last Updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
             </p>
             <p>
-              This Privacy Policy describes how {companyName} ("we," "our," or "us"), which operates the Camentra mobile application (the "App"), collects, uses, and protects your information when you use the App.
+              This Privacy Policy describes how <strong>{companyName}</strong> ("we," "our," or "us"), which operates the Camentra mobile application (the "App"), collects, uses, and protects your information when you use the App.
             </p>
           </section>
 
           <section>
             <h3 className="text-xl font-bold text-[#1d1d1f] mb-4">1. Information We Collect</h3>
             <p className="mb-4">We collect the following types of information:</p>
-            <ul className="space-y-3 list-none">
-              <li><strong>Account Information:</strong> If you create an account, we collect your email address and any profile information you provide.</li>
-              <li><strong>Usage and Diagnostic Data:</strong> We collect limited diagnostic data (such as crash logs and performance information) to improve app stability.</li>
-              <li><strong>Device Information:</strong> We may collect device identifiers, operating system version, and device type to improve app functionality.</li>
-              <li><strong>Content You Submit (e.g., photos):</strong> Content you choose to submit for in-app features is processed to provide results. We do not retain original photos on our servers, but we may retain derived data, metadata, or insights generated from that content to improve features and product quality.</li>
-              <li><strong>Avatar Images:</strong> If you upload a profile avatar, that image is stored in cloud storage associated with your account.</li>
+            <ul className="space-y-4">
+              <li><strong className="text-[#1d1d1f]">Account Information:</strong> If you create an account, we collect your email address and any profile information you provide.</li>
+              <li><strong className="text-[#1d1d1f]">Usage and Diagnostic Data:</strong> We collect limited diagnostic data (such as crash logs and performance information) to improve app stability.</li>
+              <li><strong className="text-[#1d1d1f]">Device Information:</strong> We may collect device identifiers, operating system version, and device type to improve app functionality.</li>
+              <li><strong className="text-[#1d1d1f]">Content You Submit (e.g., photos):</strong> Content you choose to submit for in-app features is processed to provide results. We do not retain original photos on our servers, but we may retain derived data, metadata, or insights generated from that content to improve features and product quality.</li>
+              <li><strong className="text-[#1d1d1f]">Avatar Images:</strong> If you upload a profile avatar, that image is stored in cloud storage associated with your account.</li>
             </ul>
           </section>
 
           <section>
             <h3 className="text-xl font-bold text-[#1d1d1f] mb-4">2. How We Use Your Information</h3>
             <p className="mb-4">We use the information we collect to:</p>
-            <ul className="space-y-1 list-disc pl-5">
+            <ul className="space-y-2 list-disc pl-5 text-[#424245]">
               <li>Provide, maintain, and improve the App</li>
               <li>Process transactions and manage subscriptions</li>
               <li>Send you technical notices and support messages</li>
@@ -149,16 +155,16 @@ const App: React.FC = () => {
           <section>
             <h3 className="text-xl font-bold text-[#1d1d1f] mb-4">3. Data Storage, Retention, and Security</h3>
             <p className="mb-4">Your data is primarily stored locally on your device. If you create an account, your account profile data and avatar (if uploaded) are stored on secure cloud servers.</p>
-            <p className="mb-4"><strong>Data Retention:</strong> We retain your personal information for as long as your account is active or as needed to provide you services. If you delete your account, we will delete or anonymize your personal information within a reasonable timeframe.</p>
-            <p className="mb-4"><strong>Derived Data and Insights:</strong> We may retain derived data or insights generated from content to improve features. You may request deletion by contacting us.</p>
-            <p className="mb-4"><strong>Data Backup:</strong> You are responsible for backing up your photos and content. We are not liable for any loss of data.</p>
-            <p><strong>Sensitive Personal Information:</strong> We do not collect sensitive personal information (such as biometric data, health information, or precise geolocation).</p>
+            <p className="mb-4"><strong className="text-[#1d1d1f]">Data Retention:</strong> We retain your personal information for as long as your account is active or as needed to provide you services. If you delete your account, we will delete or anonymize your personal information within a reasonable timeframe.</p>
+            <p className="mb-4"><strong className="text-[#1d1d1f]">Derived Data and Insights:</strong> We may retain derived data or insights generated from content to improve features. You may request deletion by contacting us.</p>
+            <p className="mb-4"><strong className="text-[#1d1d1f]">Data Backup:</strong> You are responsible for backing up your photos and content. We are not liable for any loss of data.</p>
+            <p><strong className="text-[#1d1d1f]">Sensitive Personal Information:</strong> We do not collect sensitive personal information (such as biometric data, health information, or precise geolocation).</p>
           </section>
 
           <section>
             <h3 className="text-xl font-bold text-[#1d1d1f] mb-4">4. Third-Party Services</h3>
             <p className="mb-4">The App uses third-party services for authentication, subscriptions, cloud storage, and crash reporting. We use:</p>
-            <ul className="space-y-1 list-disc pl-5">
+            <ul className="space-y-2 list-disc pl-5">
               <li>Supabase (authentication and avatar storage)</li>
               <li>RevenueCat (subscription management)</li>
               <li>Apple App Store (subscription processing)</li>
@@ -168,13 +174,14 @@ const App: React.FC = () => {
 
           <section>
             <h3 className="text-xl font-bold text-[#1d1d1f] mb-4">5. Your Rights and Choices</h3>
-            <ul className="space-y-1 list-disc pl-5 mb-4">
+            <p className="mb-4">You have the right to:</p>
+            <ul className="space-y-2 list-disc pl-5 mb-4">
               <li>Access, update, or delete your account information</li>
               <li>Request a copy of your personal data</li>
               <li>Opt out of certain data collection through settings</li>
               <li>Request removal of your User Content from our systems</li>
             </ul>
-            <p>To exercise these rights, contact us at {supportEmail}. We typically respond within 30 days.</p>
+            <p>To exercise these rights, contact us at <span className="text-blue-600">{supportEmail}</span>. We typically respond within 30 days.</p>
           </section>
 
           <section>
@@ -183,17 +190,7 @@ const App: React.FC = () => {
           </section>
 
           <section>
-            <h3 className="text-xl font-bold text-[#1d1d1f] mb-4">7. International Users (EU/EEA)</h3>
-            <p>If you are in the EU or EEA, you have additional rights under the GDPR. We process data based on performance of a contract, legitimate interests, consent, and legal obligations. You have the right to lodge a complaint with a data protection authority in your country.</p>
-          </section>
-
-          <section>
-            <h3 className="text-xl font-bold text-[#1d1d1f] mb-4">8. Changes to This Policy</h3>
-            <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by updating the "Last Updated" date.</p>
-          </section>
-
-          <section>
-            <h3 className="text-xl font-bold text-[#1d1d1f] mb-4">9. Contact Us</h3>
+            <h3 className="text-xl font-bold text-[#1d1d1f] mb-4">7. Contact Us</h3>
             <p>If you have questions about this Privacy Policy, please contact us at:<br /><strong>{supportEmail}</strong></p>
           </section>
         </div>
@@ -222,7 +219,7 @@ const App: React.FC = () => {
         {/* Hero Section */}
         <section className="py-16 md:py-32 px-6 overflow-hidden">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 md:gap-24">
-            <div className="text-center md:text-left flex flex-col items-center md:items-start flex-1 order-2 md:order-1">
+            <div className="text-center md:text-left flex flex-col items-center md:items-start flex-1 order-2 md:order-1 animate-fade-in">
               <div className="mb-8 hidden md:block">
                 <SafeImage 
                   src="./app-icon-ios.png" 
