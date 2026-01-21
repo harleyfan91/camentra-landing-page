@@ -59,7 +59,7 @@ const IPhoneMockup: React.FC = () => {
         <div className="w-full h-full relative">
           <video 
             src="/welcome-screen-1.mp4" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
             autoPlay 
             loop 
             muted 
