@@ -205,7 +205,7 @@ const App: React.FC = () => {
             <SafeImage 
               src="/app-icon-ios.png" 
               alt="Camentra Icon" 
-              className="w-10 h-10 object-contain" 
+              className="w-10 h-10 rounded-xl border border-gray-100/50"
             />
             <span className="text-xl font-bold tracking-tight text-[#1d1d1f]">Camentra</span>
           </div>
@@ -312,7 +312,7 @@ const App: React.FC = () => {
               <SafeImage 
                 src="/app-icon-ios.png" 
                 alt="" 
-                className="w-5 h-5 rounded-sm" 
+                className="w-5 h-5 rounded-[22.5%]"
               />
               <span className="font-bold text-[#1d1d1f] text-xs">Camentra</span>
             </div>
