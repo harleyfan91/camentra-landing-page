@@ -40,21 +40,23 @@ const SafeImage: React.FC<SafeImageProps> = ({ src, alt, className, style, fallb
 
 const IPhoneMockup: React.FC = () => {
   return (
-    <div className="relative mx-auto w-[280px] h-[580px] md:w-[320px] md:h-[650px] bg-[#1d1d1f] rounded-[55px] p-3 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border-[6px] border-[#3a3a3c] animate-fade-in">
-      {/* Power/Volume Buttons */}
-      <div className="absolute -left-[7px] top-24 w-[3px] h-12 bg-[#3a3a3c] rounded-l-md" />
-      <div className="absolute -left-[7px] top-40 w-[3px] h-16 bg-[#3a3a3c] rounded-l-md" />
-      <div className="absolute -right-[7px] top-32 w-[3px] h-20 bg-[#3a3a3c] rounded-r-md" />
+    <div className="relative mx-auto w-[280px] h-[580px] md:w-[310px] md:h-[630px] bg-[#1d1d1f] rounded-[50px] p-[10px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.4)] ring-1 ring-white/10 animate-fade-in">
       
-      {/* Screen */}
-      <div className="relative w-full h-full bg-[#000] rounded-[42px] overflow-hidden border border-white/5">
+      {/* Physical Chassis Accents (Buttons) */}
+      <div className="absolute -left-[2px] top-28 w-[3px] h-12 bg-[#3a3a3c] rounded-l-md" /> {/* Action/Mute */}
+      <div className="absolute -left-[2px] top-44 w-[3px] h-24 bg-[#3a3a3c] rounded-l-md" /> {/* Volume */}
+      <div className="absolute -right-[2px] top-40 w-[3px] h-20 bg-[#3a3a3c] rounded-r-md" /> {/* Power */}
+
+      {/* The "Screen" - Ultra Thin Bezel */}
+      <div className="relative w-full h-full bg-black rounded-[40px] overflow-hidden shadow-inner flex items-center justify-center">
+        
         {/* Dynamic Island */}
         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-20 flex items-center justify-end px-3">
-          <div className="w-2 h-2 rounded-full bg-blue-500/20" />
+          <div className="w-1.5 h-1.5 rounded-full bg-blue-500/10" />
         </div>
         
         {/* Video Content */}
-        <div className="w-full h-full bg-black flex items-center justify-center relative">
+        <div className="w-full h-full relative">
           <video 
             src="/welcome-screen-1.mp4" 
             className="w-full h-full object-cover"
@@ -63,10 +65,10 @@ const IPhoneMockup: React.FC = () => {
             muted 
             playsInline
             poster="https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80&w=800"
-          >
-          </video>
-          {/* Subtle reflection overlay */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent pointer-events-none" />
+          />
+          
+          {/* Subtle Screen Glare Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/10 pointer-events-none" />
         </div>
       </div>
     </div>
