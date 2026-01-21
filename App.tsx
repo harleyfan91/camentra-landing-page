@@ -232,7 +232,7 @@ const App: React.FC = () => {
                 Pro Quality Photos, Simplified.
               </h1>
               <p className="text-lg md:text-xl text-[#86868b] font-medium mb-10 leading-relaxed max-w-xl">
-                You don't need a studio or professional camera to take great photos. Camentra is an AI-powered coach that helps you take clear, consistent, and beautiful pictures right from your phone.
+                You don't need a studio or professional camera to take great photos. Camentra is an AI-powered photo coach that helps you take clear, consistent, and beautiful pictures right from your phone.
               </p>
               <div className="inline-flex items-center bg-black text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:bg-[#1d1d1f] transition-all cursor-default shadow-xl shadow-black/10 active:scale-95">
                 <svg className="w-6 h-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
