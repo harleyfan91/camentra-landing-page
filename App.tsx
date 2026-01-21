@@ -203,9 +203,9 @@ const App: React.FC = () => {
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <SafeImage 
-              src="/logo-transparent-background.png"
-              alt="Camentra Logo" 
-              className="w-8 h-8 object-contain"
+              src="/app-icon-ios.png" 
+              alt="Camentra Icon" 
+              className="w-10 h-10 object-contain" 
             />
             <span className="text-xl font-bold tracking-tight text-[#1d1d1f]">Camentra</span>
           </div>
@@ -224,9 +224,9 @@ const App: React.FC = () => {
             <div className="text-center md:text-left flex flex-col items-center md:items-start flex-1 order-2 md:order-1 animate-fade-in">
               <div className="mb-8 hidden md:block">
                 <SafeImage 
-                  src="./app-icon-ios.png" 
-                  alt="Icon" 
-                  className="w-16 h-16 rounded-[22.5%] shadow-md border border-gray-100"
+                  src="/app-icon-ios.png" 
+                  alt="Camentra App Icon" 
+                  className="w-20 h-20 rounded-[22.5%] shadow-xl border border-gray-100/50"
                 />
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#1d1d1f] mb-6 leading-[1.1]">
@@ -308,8 +308,12 @@ const App: React.FC = () => {
       <footer className="bg-white border-t border-gray-100 pt-20 pb-12 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
           <div className="flex flex-col gap-1">
-            <div className="flex items-center gap-2 mb-2 opacity-40 grayscale">
-              <SafeImage src="./logo-transparent-background" alt="" className="w-4 h-4" />
+            <div className="flex items-center gap-2 mb-2 opacity-60">
+              <SafeImage 
+                src="/app-icon-ios.png" 
+                alt="" 
+                className="w-5 h-5 rounded-sm" 
+              />
               <span className="font-bold text-[#1d1d1f] text-xs">Camentra</span>
             </div>
             <p className="text-[#1d1d1f] font-medium text-sm leading-none mb-1 text-gray-900">{companyName}</p>
