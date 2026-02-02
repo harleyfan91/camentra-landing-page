@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 /**
@@ -229,10 +228,10 @@ const App: React.FC = () => {
                 />
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-[#1d1d1f] mb-6 leading-[1.1]">
-                Pro Quality Photos, Simplified.
+                Stop Overthinking, Start Posting.
               </h1>
               <p className="text-lg md:text-xl text-[#86868b] font-medium mb-10 leading-relaxed max-w-xl">
-                You don't need a studio or professional camera to take great photos. Camentra is an AI-powered photo coach that helps you take clear, consistent, and beautiful pictures right from your phone.
+                You're an expert at what you do—you shouldn't have to be a photographer, too. Camentra gives you visual blueprints for every shot and a second set of eyes to make sure you nail it the first time.
               </p>
               <div className="inline-flex items-center bg-black text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:bg-[#1d1d1f] transition-all cursor-default shadow-xl shadow-black/10 active:scale-95">
                 <svg className="w-6 h-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
@@ -255,21 +254,21 @@ const App: React.FC = () => {
               <div className="bg-white p-12 rounded-[2.5rem] border border-gray-100 shadow-sm flex flex-col gap-3">
                 <h3 className="text-2xl font-bold text-[#1d1d1f]">No Guesswork</h3>
                 <p className="text-[#86868b] leading-relaxed">
-                  Camentra includes 25+ overlay templates and an AI coach that guides your phone to the perfect angle in real-time.
+                  Visual blueprints show you exactly where to place your subject. Line it up, shoot it, done. Your second set of eyes confirms you got it before you walk away.
                 </p>
               </div>
 
               <div className="bg-white p-12 rounded-[2.5rem] border border-gray-100 shadow-sm flex flex-col gap-3">
                 <h3 className="text-2xl font-bold text-[#1d1d1f]">Brand Consistency</h3>
                 <p className="text-[#86868b] leading-relaxed">
-                  Maintain the same style across every photo so your listings and social posts look professional and intentional.
+                  Use the same blueprint for similar shots, and your photos start to look like they belong together. Customers notice when a brand's visuals feel intentional—it builds trust before you say a word.
                 </p>
               </div>
 
               <div className="bg-white p-12 rounded-[2.5rem] border border-gray-100 shadow-sm flex flex-col gap-3">
                 <h3 className="text-2xl font-bold text-[#1d1d1f]">Done in One Shot</h3>
                 <p className="text-[#86868b] leading-relaxed">
-                  Stop scrolling through dozens of bad takes. Get the 'hero shot' the first time and get back to your business.
+                  No more "let me take 20 just in case." Follow the blueprint, check the instant feedback, and you're done. One shot, post-ready, back to work.
                 </p>
               </div>
             </div>
@@ -282,10 +281,10 @@ const App: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-[#1d1d1f] mb-10 tracking-tight">Built for you.</h2>
             <div className="space-y-8 text-lg md:text-xl text-[#424245] leading-relaxed">
               <p>
-                Camentra is for the solo entrepreneur, small business owner or builder who wears every hat: The baker, the maker, and the shop owner. We know you don't have time to learn complex photography, but we also know that great photos define your brand.
+                Camentra is for the baker, the maker, the shop owner who wears every hat. You know your craft—we know photos. Our job is simple: remove the "shutter anxiety" so you can shoot with confidence and get back to what you do best.
               </p>
               <p>
-                Our goal is to give you the confidence to capture your work beautifully, without the stress. We believe every business deserves to look its best.
+                The biggest hurdle for most business owners isn't taking photos—it's knowing if they're good enough to post. Camentra removes that guesswork entirely. We believe every business deserves to look its best.
               </p>
             </div>
           </div>
