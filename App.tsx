@@ -39,13 +39,16 @@ const SafeImage: React.FC<SafeImageProps> = ({ src, alt, className, style, fallb
 
 const IPhoneMockup: React.FC = () => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
+  const [isLoading, setIsLoading] = React.useState(true);
 
   useEffect(() => {
-    // This is the "Safety Net": It tells the mobile browser 
-    // to start playing as soon as the component is ready.
     if (videoRef.current) {
+      // Attempt to play
       videoRef.current.play().catch((error) => {
-        console.error("Autoplay failed:", error);
+        // If it fails (like in Low Power Mode), we stop the loading 
+        // spinner so the user sees the play button/poster instead.
+        setIsLoading(false);
+        console.log("Autoplay blocked by Low Power Mode.");
       });
     }
   }, []);
@@ -65,22 +68,30 @@ const IPhoneMockup: React.FC = () => {
         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-20 flex items-center justify-end px-3">
           <div className="w-1.5 h-1.5 rounded-full bg-blue-500/10" />
         </div>
+
+        {/* Loading Spinner - Only shows while video is buffering */}
+        {isLoading && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-black">
+            <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+          </div>
+        )}
         
         {/* Video Content */}
         <div className="w-full h-full relative">
           <video 
             ref={videoRef}
-            className="w-full h-full object-contain"
+            className={`w-full h-full object-contain transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
             autoPlay 
             loop 
             muted 
-            playsInline // Essential for iOS
+            playsInline
             preload="auto"
-            disablePictureInPicture
+            onPlaying={() => setIsLoading(false)} // Hides spinner when video actually moves
+            // IMPORTANT: If you have a screenshot of the first frame, 
+            // put it here. It's the "background" when video is blocked.
+            poster="/welcome-screen-poster.jpg" 
           >
-            {/* Using the new optimized file you just converted */}
             <source src="/welcome-screen-1-fixed.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
           
           {/* Subtle Screen Glare Overlay */}
