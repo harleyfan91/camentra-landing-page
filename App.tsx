@@ -41,10 +41,11 @@ const IPhoneMockup: React.FC = () => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Force play on mount to handle Safari's strictness
+    // This is the "Safety Net": It tells the mobile browser 
+    // to start playing as soon as the component is ready.
     if (videoRef.current) {
       videoRef.current.play().catch((error) => {
-        console.error("Autoplay prevented:", error);
+        console.error("Autoplay failed:", error);
       });
     }
   }, []);
@@ -73,13 +74,12 @@ const IPhoneMockup: React.FC = () => {
             autoPlay 
             loop 
             muted 
-            playsInline
+            playsInline // Essential for iOS
             preload="auto"
             disablePictureInPicture
-            // Add a static screenshot of the first frame here
-            poster="/video-poster.jpg" 
           >
-            <source src="/welcome-screen-1.mp4" type="video/mp4" />
+            {/* Using the new optimized file you just converted */}
+            <source src="/welcome-screen-1-fixed.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           
