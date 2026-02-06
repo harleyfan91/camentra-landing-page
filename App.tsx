@@ -38,15 +38,26 @@ const SafeImage: React.FC<SafeImageProps> = ({ src, alt, className, style, fallb
 };
 
 const IPhoneMockup: React.FC = () => {
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Force play on mount to handle Safari's strictness
+    if (videoRef.current) {
+      videoRef.current.play().catch((error) => {
+        console.error("Autoplay prevented:", error);
+      });
+    }
+  }, []);
+
   return (
     <div className="relative mx-auto w-[280px] h-[580px] md:w-[310px] md:h-[630px] bg-[#1d1d1f] rounded-[50px] p-[10px] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.4)] ring-1 ring-white/10 animate-fade-in">
       
-      {/* Physical Chassis Accents (Buttons) */}
-      <div className="absolute -left-[2px] top-28 w-[3px] h-12 bg-[#3a3a3c] rounded-l-md" /> {/* Action/Mute */}
-      <div className="absolute -left-[2px] top-44 w-[3px] h-24 bg-[#3a3a3c] rounded-l-md" /> {/* Volume */}
-      <div className="absolute -right-[2px] top-40 w-[3px] h-20 bg-[#3a3a3c] rounded-r-md" /> {/* Power */}
+      {/* Physical Chassis Accents */}
+      <div className="absolute -left-[2px] top-28 w-[3px] h-12 bg-[#3a3a3c] rounded-l-md" />
+      <div className="absolute -left-[2px] top-44 w-[3px] h-24 bg-[#3a3a3c] rounded-l-md" />
+      <div className="absolute -right-[2px] top-40 w-[3px] h-20 bg-[#3a3a3c] rounded-r-md" />
 
-      {/* The "Screen" - Ultra Thin Bezel */}
+      {/* The "Screen" */}
       <div className="relative w-full h-full bg-black rounded-[40px] overflow-hidden shadow-inner flex items-center justify-center">
         
         {/* Dynamic Island */}
@@ -57,16 +68,18 @@ const IPhoneMockup: React.FC = () => {
         {/* Video Content */}
         <div className="w-full h-full relative">
           <video 
-            src="/welcome-screen-1.mp4" 
+            ref={videoRef}
             className="w-full h-full object-contain"
             autoPlay 
             loop 
             muted 
-            playsInline // Critical for iOS
+            playsInline
             preload="auto"
             disablePictureInPicture
+            // Add a static screenshot of the first frame here
+            poster="/video-poster.jpg" 
           >
-            {/* Fallback for very old browsers */}
+            <source src="/welcome-screen-1.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           
