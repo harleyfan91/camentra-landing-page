@@ -62,8 +62,13 @@ const IPhoneMockup: React.FC = () => {
             autoPlay 
             loop 
             muted 
-            playsInline
-          />
+            playsInline // Critical for iOS
+            preload="auto"
+            disablePictureInPicture
+          >
+            {/* Fallback for very old browsers */}
+            Your browser does not support the video tag.
+          </video>
           
           {/* Subtle Screen Glare Overlay */}
           <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-white/10 pointer-events-none" />
