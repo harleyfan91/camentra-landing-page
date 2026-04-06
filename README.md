@@ -10,7 +10,7 @@ This contains everything you need to run your app locally.
 
 Camentra is a **Brand Alchemy LLC** product. This landing page follows the parent marketing brand: typography (Inter + Source Serif 4, display weight rules), Tailwind **gray-*** neutrals, shared design tokens, modal scrim, and the β△ mark pattern.
 
-- **Canonical reference:** [Brand source of truth](https://github.com/YOUR_ORG/YOUR_UMBRELLA_REPO/blob/main/docs/BRAND_SOURCE_OF_TRUTH.md) — substitute your org and umbrella repo name, or open that file in your local clone of the parent marketing repository.
+- **Canonical reference:** [Brand source of truth](https://github.com/YOUR_ORG/YOUR_UMBRELLA_REPO/blob/main/docs/BRAND_SOURCE_OF_TRUTH.md). Substitute your org and umbrella repo name, or open that file in your local clone of the parent marketing repository.
 - **Tokens:** [`public/brand-tokens.css`](public/brand-tokens.css) is copied from the umbrella repo’s `public/brand-tokens.css`; re-sync when tokens change (see the comment at the top of that file). Detailed typography, grays, buttons, and UI rules live in the umbrella’s `docs/BRAND_GUIDELINES.md`.
 
 **Intentional exceptions:** Product-specific assets and copy (e.g. app icon, hero device mockup and video, Camentra messaging) are owned by this product; they are not required to match parent imagery, as long as they stay within the shared type and neutral palette rules above.

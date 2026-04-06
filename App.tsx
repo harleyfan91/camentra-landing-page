@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 
 /**
  * Camentra Landing Page
- * Design system aligned with Brand Alchemy LLC parent brand (see README — Brand alignment).
- * Fonts: Inter + Source Serif 4 — hero H1 is Inter bold uppercase like parent Hero.tsx; serif for section titles (.font-serif).
+ * Design system aligned with Brand Alchemy LLC parent brand (see README, Brand alignment).
+ * Fonts: Inter + Source Serif 4. Hero H1: Inter bold uppercase (parent Hero.tsx); section titles: .font-serif.
  * Neutrals: Tailwind gray-* only, aligned with public/brand-tokens.css.
  * Nav: text-[10px] font-bold uppercase tracking-[0.2em]
- * Footer: 3-column with β△ maker's mark
+ * Section stack: eyebrow xs uppercase gray-400; serif H3 4xl/5xl font-normal; body Inter font-light gray-500 (features sm/md:base; about/support lg where appropriate)
+ * Footer: wordmark + nav + β△ © parent name (no extra “product of” line)
  */
 
 // ─── Inline AlchemyMark ───────────────────────────────────────────────────────
@@ -132,7 +133,7 @@ const Modal: React.FC<{
             </svg>
           </button>
         </div>
-        <div className="p-6 md:p-10 overflow-y-auto text-gray-500 leading-relaxed custom-scrollbar text-sm font-light">
+        <div className="custom-scrollbar overflow-y-auto p-6 text-sm font-light leading-relaxed text-gray-500 md:p-10">
           {children}
         </div>
       </div>
@@ -179,7 +180,7 @@ const App: React.FC = () => {
         if (!res.ok) throw new Error('submit failed');
       } else {
         setWaitlistUsedMailto(true);
-        const subject = encodeURIComponent('Camentra — notify me at App Store launch');
+        const subject = encodeURIComponent('Camentra: App Store launch list');
         const body = encodeURIComponent(
           `Please add this address to the launch notification list:\n\n${email}\n`,
         );
@@ -210,7 +211,7 @@ const App: React.FC = () => {
           </section>
 
           <section>
-            <h3 className="text-lg font-bold text-gray-900 mb-4">1. Information We Collect</h3>
+            <h3 className="mb-4 font-serif text-2xl font-normal text-gray-900">1. Information We Collect</h3>
             <p className="mb-4">We collect the following types of information:</p>
             <ul className="space-y-4">
               <li><strong className="text-gray-900">Website waitlist and marketing signups:</strong> If you submit your email on our website (for example to be notified when Camentra is available on the App Store), we collect that email address. We use it to send launch notices and, where permitted, occasional emails about Camentra and related products or updates. Every marketing email includes a way to unsubscribe.</li>
@@ -223,7 +224,7 @@ const App: React.FC = () => {
           </section>
 
           <section>
-            <h3 className="text-lg font-bold text-gray-900 mb-4">2. How We Use Your Information</h3>
+            <h3 className="mb-4 font-serif text-2xl font-normal text-gray-900">2. How We Use Your Information</h3>
             <p className="mb-4">We use the information we collect to:</p>
             <ul className="space-y-2 list-disc pl-5">
               <li>Provide, maintain, and improve the App</li>
@@ -238,7 +239,7 @@ const App: React.FC = () => {
           </section>
 
           <section>
-            <h3 className="text-lg font-bold text-gray-900 mb-4">3. Data Storage, Retention, and Security</h3>
+            <h3 className="mb-4 font-serif text-2xl font-normal text-gray-900">3. Data Storage, Retention, and Security</h3>
             <p className="mb-4">Your data is primarily stored locally on your device. If you create an account, your account profile data and avatar (if uploaded) are stored on secure cloud servers.</p>
             <p className="mb-4"><strong className="text-gray-900">Data Retention:</strong> We retain your personal information for as long as your account is active or as needed to provide you services. If you delete your account, we will delete or anonymize your personal information within a reasonable timeframe.</p>
             <p className="mb-4"><strong className="text-gray-900">Derived Data and Insights:</strong> We may retain derived data or insights generated from content to improve features. You may request deletion by contacting us.</p>
@@ -247,7 +248,7 @@ const App: React.FC = () => {
           </section>
 
           <section>
-            <h3 className="text-lg font-bold text-gray-900 mb-4">4. Third-Party Services</h3>
+            <h3 className="mb-4 font-serif text-2xl font-normal text-gray-900">4. Third-Party Services</h3>
             <p className="mb-4">The App and our website may use third-party services for authentication, subscriptions, cloud storage, crash reporting, and (for example) processing email signups or delivering messages. We use:</p>
             <ul className="space-y-2 list-disc pl-5">
               <li>Supabase (authentication and avatar storage)</li>
@@ -258,7 +259,7 @@ const App: React.FC = () => {
           </section>
 
           <section>
-            <h3 className="text-lg font-bold text-gray-900 mb-4">5. Your Rights and Choices</h3>
+            <h3 className="mb-4 font-serif text-2xl font-normal text-gray-900">5. Your Rights and Choices</h3>
             <p className="mb-4">You have the right to:</p>
             <ul className="space-y-2 list-disc pl-5 mb-4">
               <li>Access, update, or delete your account information</li>
@@ -267,22 +268,22 @@ const App: React.FC = () => {
               <li>Opt out of certain data collection through settings</li>
               <li>Request removal of your User Content from our systems</li>
             </ul>
-            <p>To exercise these rights, contact us at <span className="text-gray-900 font-medium">{supportEmail}</span>. We typically respond within 30 days.</p>
+            <p>To exercise these rights, contact us at <span className="text-gray-900">{supportEmail}</span>. We typically respond within 30 days.</p>
           </section>
 
           <section>
-            <h3 className="text-lg font-bold text-gray-900 mb-4">6. Children's Privacy</h3>
+            <h3 className="mb-4 font-serif text-2xl font-normal text-gray-900">6. Children&apos;s Privacy</h3>
             <p>The App is not intended for children under 13. We do not knowingly collect information from children under 13. If you believe we have, please contact us immediately.</p>
           </section>
 
           <section>
-            <h3 className="text-lg font-bold text-gray-900 mb-4">7. Contact Us</h3>
+            <h3 className="mb-4 font-serif text-2xl font-normal text-gray-900">7. Contact Us</h3>
             <p>If you have questions about this Privacy Policy, please contact us at:<br /><strong className="text-gray-900">{supportEmail}</strong></p>
           </section>
         </div>
       </Modal>
 
-      {/* ── Header — matches Brand Alchemy fixed + scroll-aware pattern ── */}
+      {/* ── Header: fixed + scroll-aware (parent pattern) ── */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-white/80 backdrop-blur-xl border-b border-gray-100 py-4'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <div className="flex items-center gap-2.5">
@@ -293,7 +294,7 @@ const App: React.FC = () => {
             />
             <span className="text-xl font-bold tracking-tight text-gray-900">Camentra</span>
           </div>
-          {/* Nav links — text-xs uppercase tracking matches Brand Alchemy */}
+          {/* Nav links: text-xs uppercase tracking (parent pattern) */}
           <nav className="hidden md:flex gap-10 text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
             <a href="#features" className="hover:text-black transition-colors">How it Works</a>
             <a href="#about" className="hover:text-black transition-colors">Our Goal</a>
@@ -304,7 +305,7 @@ const App: React.FC = () => {
 
       <main className="flex-grow pt-16">
 
-        {/* ── Hero — same copy as before; H1 scale/weight/case/tracking matches parent Hero.tsx (Inter bold uppercase + gray accent line) ── */}
+        {/* ── Hero: Inter uppercase H1 + gray accent (parent Hero.tsx) ── */}
         <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
           <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden>
             <div className="absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-gray-50 to-white opacity-60 blur-3xl" />
@@ -317,7 +318,7 @@ const App: React.FC = () => {
                 <span className="text-gray-500">Start posting.</span>
               </h1>
               <p className="mb-10 max-w-xl text-base font-light leading-relaxed text-gray-500 md:text-xl">
-                You're an expert at what you do — you shouldn't have to be a photographer, too. Camentra gives you visual blueprints for every shot and a second set of eyes to make sure you nail it the first time.
+                You&apos;re an expert at what you do. You shouldn&apos;t have to be a photographer, too. Camentra gives you visual blueprints for every shot and a second set of eyes to make sure you nail it the first time.
               </p>
               <div className="w-full max-w-lg">
                 <p className="mb-4 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gray-400 md:justify-start">
@@ -328,10 +329,10 @@ const App: React.FC = () => {
                 </p>
                 {waitlistStatus === 'success' ? (
                   <div className="space-y-3" role="status">
-                    <p className="text-sm font-medium text-gray-700">
+                    <p className="text-sm font-light text-gray-700">
                       {waitlistUsedMailto
-                        ? 'Almost there — if your email app opened a draft, send it to join the list.'
-                        : "You're on the list — we'll email you when Camentra launches."}
+                        ? 'Almost there. If your email app opened a draft, send it to join the list.'
+                        : "You're on the list. We'll email you when Camentra launches."}
                     </p>
                     {waitlistUsedMailto && (
                       <p className="text-xs text-gray-500">
@@ -413,125 +414,93 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* ── Features — bare layout on bg-gray-50, mirrors BA Services section ── */}
+        {/* ── Features: bg-gray-50, mirrors parent Services section ── */}
         <section id="features" className="py-24 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-20">
-              <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-gray-400 mb-4 text-center">How it Works</h2>
-              <h3 className="text-4xl md:text-5xl font-normal font-serif text-gray-900 text-center">
-                Simple tools. Real results.
-              </h3>
+            <div className="mb-12 text-center md:mb-16">
+              <h2 className="mb-2 text-xs font-bold uppercase tracking-[0.3em] text-gray-400 md:mb-4">How it Works</h2>
+              <h3 className="font-serif text-4xl font-normal text-gray-900 md:text-5xl">Simple tools. Real results.</h3>
             </div>
 
-            {/* No cards — items float on the section bg, gap-16 matches BA Services grid */}
-            <div className="grid md:grid-cols-3 gap-16">
-
+            {/* Body: Inter light gray-500, sm/md:base (parent Services intros) */}
+            <div className="grid gap-16 md:grid-cols-3">
               <div className="flex flex-col">
-                <div className="w-10 h-10 text-gray-900 mb-8">
-                  {/* Target / aim icon — "No Guesswork" */}
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 12a6 6 0 1 0 12 0A6 6 0 0 0 6 12zm6 0h.01M12 3v2m0 14v2M3 12h2m14 0h2" />
-                  </svg>
-                </div>
-                <h4 className="text-base font-bold mb-4 text-gray-900 uppercase tracking-wider">No Guesswork</h4>
-                <p className="text-gray-500 leading-relaxed font-light text-sm">
+                <div className="mb-6 text-5xl font-bold leading-none text-gray-200">01</div>
+                <h4 className="mb-4 text-base font-bold text-gray-900">No Guesswork</h4>
+                <p className="text-gray-500 text-sm font-light leading-relaxed md:text-base">
                   Visual blueprints show you exactly where to place your subject. Line it up, shoot it, done. Your second set of eyes confirms you got it before you walk away.
                 </p>
               </div>
 
               <div className="flex flex-col">
-                <div className="w-10 h-10 text-gray-900 mb-8">
-                  {/* Layers icon — "Brand Consistency" */}
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75 2.25 12l4.179 2.25m0-4.5 5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0 4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0-5.571 3-5.571-3" />
-                  </svg>
-                </div>
-                <h4 className="text-base font-bold mb-4 text-gray-900 uppercase tracking-wider">Brand Consistency</h4>
-                <p className="text-gray-500 leading-relaxed font-light text-sm">
-                  Use the same blueprint for similar shots, and your photos start to look like they belong together. Customers notice when a brand's visuals feel intentional — it builds trust before you say a word.
+                <div className="mb-6 text-5xl font-bold leading-none text-gray-200">02</div>
+                <h4 className="mb-4 text-base font-bold text-gray-900">Brand Consistency</h4>
+                <p className="text-gray-500 text-sm font-light leading-relaxed md:text-base">
+                  Use the same blueprint for similar shots, and your photos start to look like they belong together. When a brand&apos;s visuals feel intentional, customers notice, and that builds trust before you say a word.
                 </p>
               </div>
 
               <div className="flex flex-col">
-                <div className="w-10 h-10 text-gray-900 mb-8">
-                  {/* Checkmark circle icon — "Done in One Shot" */}
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                  </svg>
-                </div>
-                <h4 className="text-base font-bold mb-4 text-gray-900 uppercase tracking-wider">Done in One Shot</h4>
-                <p className="text-gray-500 leading-relaxed font-light text-sm">
-                  No more "let me take 20 just in case." Follow the blueprint, check the instant feedback, and you're done. One shot, post-ready, back to work.
+                <div className="mb-6 text-5xl font-bold leading-none text-gray-200">03</div>
+                <h4 className="mb-4 text-base font-bold text-gray-900">Done in One Shot</h4>
+                <p className="text-gray-500 text-sm font-light leading-relaxed md:text-base">
+                  No more &quot;let me take 20 just in case.&quot; Follow the blueprint, check the instant feedback, and you&apos;re done. One shot, post-ready, back to work.
                 </p>
               </div>
-
             </div>
           </div>
         </section>
 
-        {/* ── About ── */}
+        {/* ── About: centered, max-w-7xl / max-w-5xl prose ── */}
         <section id="about" className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-gray-400 mb-4">Our Goal</h2>
-              <h3 className="text-4xl md:text-5xl font-normal font-serif text-gray-900 mb-10">
-                Built for you.
-              </h3>
-              <div className="space-y-6 text-lg text-gray-500 leading-relaxed font-light">
-                <p>
-                  Camentra is for the baker, the maker, the shop owner who wears every hat. You know your craft — we know photos. Our job is simple: remove the guesswork so you can shoot with confidence and get back to what you do best.
-                </p>
-                <p>
-                  The biggest hurdle for most business owners isn't taking photos — it's knowing if they're good enough to post. Camentra removes that uncertainty entirely. We believe every business deserves to look its best.
-                </p>
-              </div>
+          <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+            <h2 className="mb-2 text-xs font-bold uppercase tracking-[0.3em] text-gray-400 md:mb-4">Our Goal</h2>
+            <h3 className="mb-8 font-serif text-4xl font-normal text-gray-900 md:mb-10 md:text-5xl">
+              Built for you.
+            </h3>
+            <div className="mx-auto max-w-5xl space-y-6 text-base font-light leading-relaxed text-gray-500 md:text-lg">
+              <p>
+                Camentra is for the baker, the maker, the shop owner who wears every hat. You know your craft, and we know photos. Our job is simple: remove the guesswork so you can shoot with confidence and get back to what you do best.
+              </p>
+              <p>
+                The biggest hurdle for most business owners isn&apos;t taking photos. It&apos;s knowing whether they&apos;re good enough to post. Camentra removes that uncertainty entirely. We believe every business deserves to look its best.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* ── Support ── */}
+        {/* ── Support: parent Contact pattern, email as text link ── */}
         <section id="contact" className="py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <h2 className="text-xs font-bold uppercase tracking-[0.3em] text-gray-400 mb-4">Support</h2>
-              <h3 className="text-4xl md:text-5xl font-normal font-serif text-gray-900 mb-8">Have questions?</h3>
-              <p className="text-lg text-gray-500 font-light leading-relaxed mb-6">
-                We're here to help. Reach out any time and we'll get back to you as soon as we can.
-              </p>
+          <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+            <h2 className="mb-2 text-xs font-bold uppercase tracking-[0.3em] text-gray-400 md:mb-4">Support</h2>
+            <h3 className="mb-8 font-serif text-4xl font-normal text-gray-900 md:text-5xl">Have questions?</h3>
+            <p className="mx-auto max-w-5xl text-lg font-light leading-relaxed text-gray-500">
+              We&apos;re here to help. Reach out any time and we&apos;ll get back to you as soon as we can. Email{' '}
               <a
                 href={`mailto:${supportEmail}`}
-                className="inline-block px-8 py-4 bg-black text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-gray-800 transition-colors shadow-lg"
+                className="text-gray-900 underline underline-offset-2 transition-colors hover:text-gray-500"
               >
                 {supportEmail}
               </a>
-            </div>
+              .
+            </p>
           </div>
         </section>
       </main>
 
-      {/* ── Footer — 3-column layout with β△ maker's mark, mirrors Brand Alchemy ── */}
-      <footer className="bg-white border-t border-gray-100 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
-
-          {/* Left: brand block */}
-          <div className="flex flex-col items-center md:items-start">
-            <div className="flex items-center gap-2 mb-3">
-              <SafeImage
-                src="/app-icon-ios.png"
-                alt=""
-                className="w-5 h-5 rounded-[22.5%]"
-              />
-              <span className="text-sm font-bold tracking-tight text-gray-900">Camentra</span>
-            </div>
-            {/* Parent brand callout with β△ mark — normal-case prevents β → B transform */}
-            <p className="text-xs font-medium uppercase tracking-widest text-gray-400 flex items-center gap-1.5">
-              A{' '}
-              <AlchemyMark className="text-gray-400" />
-              {' '}Brand Alchemy LLC product
-            </p>
+      {/* ── Footer: wordmark, nav, © parent (no duplicate product-of line) ── */}
+      <footer className="border-t border-gray-100 bg-white py-12">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 sm:px-6 md:flex-row md:justify-between md:gap-6 lg:px-8">
+          <div className="flex items-center gap-2">
+            <SafeImage
+              src="/app-icon-ios.png"
+              alt=""
+              className="h-5 w-5 rounded-[22.5%]"
+            />
+            <span className="text-sm font-bold tracking-tight text-gray-900">Camentra</span>
           </div>
 
-          {/* Center: nav links — matches BA footer nav style */}
+          {/* Center: nav (parent footer style) */}
           <div className="flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
             <a href="#features" className="hover:text-black transition-colors">How it Works</a>
             <a href="#about" className="hover:text-black transition-colors">Our Goal</a>
@@ -544,7 +513,7 @@ const App: React.FC = () => {
             </button>
           </div>
 
-          {/* Right: maker's mark + copyright — mirrors BA footer right column */}
+          {/* Right: maker's mark + copyright (parent footer) */}
           <div className="flex items-center gap-2.5 text-gray-300 text-xs font-medium uppercase tracking-widest">
             <AlchemyMark className="text-gray-300" />
             © {new Date().getFullYear()} Brand Alchemy LLC.
