@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react';
  * Neutrals: Tailwind gray-* only, aligned with public/brand-tokens.css.
  * Nav: text-[10px] font-bold uppercase tracking-[0.2em]
  * Section stack: eyebrow xs uppercase gray-400; serif H3 4xl/5xl font-normal; body Inter font-light gray-500 (features sm/md:base; about/support lg where appropriate)
- * Footer: wordmark + nav + β△ © parent name (no extra “product of” line)
+ * Footer: parent pattern (tagline + Privacy link, β△ ©); section nav only in header
  */
 
 // ─── Inline AlchemyMark ───────────────────────────────────────────────────────
@@ -414,10 +414,10 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* ── Features: bg-gray-50, mirrors parent Services section ── */}
-        <section id="features" className="py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-12 text-center md:mb-16">
+        {/* ── Features: same page background as parent Services (bg-transparent, not gray band) ── */}
+        <section id="features" className="relative z-20 scroll-mt-20 overflow-visible bg-transparent py-12 md:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-8 text-center md:mb-16">
               <h2 className="mb-2 text-xs font-bold uppercase tracking-[0.3em] text-gray-400 md:mb-4">How it Works</h2>
               <h3 className="font-serif text-4xl font-normal text-gray-900 md:text-5xl">Simple tools. Real results.</h3>
             </div>
@@ -469,12 +469,21 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* ── Support: parent Contact pattern, email as text link ── */}
-        <section id="contact" className="py-24 bg-gray-50">
-          <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        {/* ── Support: parent Contact (transparent bg, subtle frosted layer optional) ── */}
+        <section id="contact" className="relative z-20 scroll-mt-20 overflow-visible bg-transparent py-14 md:py-24">
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.01)',
+              backdropFilter: 'blur(3px)',
+              WebkitBackdropFilter: 'blur(3px)',
+            }}
+            aria-hidden
+          />
+          <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
             <h2 className="mb-2 text-xs font-bold uppercase tracking-[0.3em] text-gray-400 md:mb-4">Support</h2>
             <h3 className="mb-8 font-serif text-4xl font-normal text-gray-900 md:text-5xl">Have questions?</h3>
-            <p className="mx-auto max-w-5xl text-lg font-light leading-relaxed text-gray-500">
+            <p className="mx-auto max-w-2xl text-base font-light leading-relaxed text-gray-500 md:text-lg">
               We&apos;re here to help. Reach out any time and we&apos;ll get back to you as soon as we can. Email{' '}
               <a
                 href={`mailto:${supportEmail}`}
@@ -488,33 +497,20 @@ const App: React.FC = () => {
         </section>
       </main>
 
-      {/* ── Footer: wordmark, nav, © parent (no duplicate product-of line) ── */}
-      <footer className="border-t border-gray-100 bg-white py-12">
-        <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 sm:px-6 md:flex-row md:justify-between md:gap-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <SafeImage
-              src="/app-icon-ios.png"
-              alt=""
-              className="h-5 w-5 rounded-[22.5%]"
-            />
-            <span className="text-sm font-bold tracking-tight text-gray-900">Camentra</span>
-          </div>
-
-          {/* Center: nav (parent footer style) */}
-          <div className="flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">
-            <a href="#features" className="hover:text-black transition-colors">How it Works</a>
-            <a href="#about" className="hover:text-black transition-colors">Our Goal</a>
+      {/* ── Footer: parent pattern (tagline + ©); nav stays in header only ── */}
+      <footer className="border-t border-gray-100 bg-white py-6 md:py-5">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 sm:px-6 md:flex-row md:items-center md:justify-between md:gap-6 lg:px-8">
+          <p className="max-w-md text-center text-[11px] font-medium uppercase tracking-widest text-gray-400 md:max-w-none md:text-left md:text-xs">
+            Visual guidance for photos that sell what you make.{' '}
             <button
               type="button"
               onClick={() => setIsPrivacyOpen(true)}
-              className="m-0 cursor-pointer border-0 bg-transparent p-0 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-black transition-colors"
+              className="m-0 border-0 bg-transparent p-0 text-inherit underline decoration-gray-300 underline-offset-2 transition-colors hover:text-gray-900"
             >
-              Privacy Policy
+              Privacy
             </button>
-          </div>
-
-          {/* Right: maker's mark + copyright (parent footer) */}
-          <div className="flex items-center gap-2.5 text-gray-300 text-xs font-medium uppercase tracking-widest">
+          </p>
+          <div className="flex items-center gap-2.5 text-xs font-medium uppercase tracking-widest text-gray-300">
             <AlchemyMark className="text-gray-300" />
             © {new Date().getFullYear()} Brand Alchemy LLC.
           </div>
